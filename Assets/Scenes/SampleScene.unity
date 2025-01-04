@@ -201,12 +201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a297276ea3f1740b713a7dada9c78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 910219807535382102, guid: 0da4c5d2b6da5d1449a9f870d53c4a90, type: 3}
-  spawnPoints:
+  _enemyPrefab: {fileID: 4174638110378068146, guid: 0da4c5d2b6da5d1449a9f870d53c4a90, type: 3}
+  _spawnPoints:
   - {fileID: 96950554}
   - {fileID: 1559323456}
   - {fileID: 1652832791}
-  spawnInterval: 2
+  _spawnInterval: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
