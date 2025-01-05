@@ -17,19 +17,16 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while (true)
+        bool isWorking = true;
+
+        while (isWorking)
         {
             Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
 
             Movement enemy = Instantiate(_enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
-            Movement enemyMovement = enemy.GetComponent<Movement>();
-
-            if (enemyMovement != null)
-            {
-                enemyMovement.SetDirection(spawnPoint.forward);
-            }
-
+            enemy.SetDirection(spawnPoint.forward);
+            
             yield return _waitForSeconds;
         }
     }
