@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private Movement _enemyPrefab;
-    [SerializeField] private Transform[] _spawnPoints;  
+    [SerializeField] private SpawnPoint[] _spawnPoints;  
     [SerializeField] private float _spawnInterval = 2f;
 
     private WaitForSeconds _waitForSeconds;
@@ -21,12 +20,13 @@ public class EnemySpawner : MonoBehaviour
 
         while (isWorking)
         {
-            Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
+            //Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)].transform;
 
-            Movement enemy = Instantiate(_enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            foreach (var spawnPoint in _spawnPoints)
+            {
+                spawnPoint.InitializeEnemy();
+            }
 
-            enemy.SetDirection(spawnPoint.forward);
-            
             yield return _waitForSeconds;
         }
     }
