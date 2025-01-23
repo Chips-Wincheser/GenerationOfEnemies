@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private SpawnPoint[] _spawnPoints;  
-    [SerializeField] private float _spawnInterval = 2f;
+    [SerializeField] private SpawnPoint[] _spawnPoints;
+    [SerializeField] private Target[] _targets;
+    [SerializeField] private float _spawnInterval = 4f;
 
     private WaitForSeconds _waitForSeconds;
 
@@ -20,11 +21,9 @@ public class EnemySpawner : MonoBehaviour
 
         while (isWorking)
         {
-            //Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)].transform;
-
             foreach (var spawnPoint in _spawnPoints)
             {
-                spawnPoint.InitializeEnemy();
+                spawnPoint.InitializeEnemy(_targets);
             }
 
             yield return _waitForSeconds;

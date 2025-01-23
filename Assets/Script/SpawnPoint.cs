@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    [SerializeField] private Transform _targetPoint;
-    [SerializeField] private Movement _enemyPrefab;
+    [SerializeField] private Mover _enemyPrefab;
 
-    public void InitializeEnemy()
+    public void InitializeEnemy(Target[] targets)
     {
-        Movement enemy = Instantiate(_enemyPrefab, transform.position, transform.rotation);
-
-        enemy.SetDirection(_targetPoint.forward);
+        Mover enemy = Instantiate(_enemyPrefab, transform.position, transform.rotation);
+        enemy.AssigningTarget(targets[Random.Range(0, targets.Length)].transform);
     }
 }
