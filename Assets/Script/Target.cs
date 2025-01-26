@@ -10,9 +10,9 @@ public class Target : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, _wayPoints[_currentWaypoint].position)<_stopThreshold)
+        if ((_wayPoints[_currentWaypoint].position-transform.position).sqrMagnitude<_stopThreshold)
         {
-            _currentWaypoint = (_currentWaypoint + 1) % _wayPoints.Length;
+            _currentWaypoint = ++_currentWaypoint % _wayPoints.Length;
         }
 
         transform.position = Vector3.MoveTowards(transform.position,_wayPoints[_currentWaypoint].position,

@@ -5,7 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private SpawnPoint[] _spawnPoints;
     [SerializeField] private Target[] _targets;
-    [SerializeField] private float _spawnInterval = 4f;
+    [SerializeField] private float _spawnInterval = 7f;
 
     private WaitForSeconds _waitForSeconds;
 
